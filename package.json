@@ -9,6 +9,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-leaflet": "^1.9.1",
+    "react-leaflet-control": "^1.4.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
