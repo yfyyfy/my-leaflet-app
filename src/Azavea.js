@@ -19,7 +19,7 @@ class Azavea extends Component {
     }
 
     componentDidMount() {
-        const leafletMap = this.leafletMap.leafletElement;
+        const leafletMap = this.refs.map.leafletElement;
         leafletMap.on('zoomend', () => {
             const updatedZoomLevel = leafletMap.getZoom();
             this.handleZoomLevelChange(updatedZoomLevel);
@@ -31,25 +31,25 @@ class Azavea extends Component {
     }
 
     handleUpPanClick() {
-        const leafletMap = this.leafletMap.leafletElement;
+        const leafletMap = this.refs.map.leafletElement;
         leafletMap.panBy([0, -100]);
         window.console.log('Panning up');
     }
 
     handleRightPanClick() {
-        const leafletMap = this.leafletMap.leafletElement;
+        const leafletMap = this.refs.map.leafletElement;
         leafletMap.panBy([100, 0]);
         window.console.log('Panning right');
     }
 
     handleLeftPanClick() {
-        const leafletMap = this.leafletMap.leafletElement;
+        const leafletMap = this.refs.map.leafletElement;
         leafletMap.panBy([-100, 0]);
         window.console.log('Panning left');
     }
 
     handleDownPanClick() {
-        const leafletMap = this.leafletMap.leafletElement;
+        const leafletMap = this.refs.map.leafletElement;
         leafletMap.panBy([0, 100]);
         window.console.log('Panning down');
     }
@@ -60,7 +60,7 @@ class Azavea extends Component {
         return (
             <div>
                 <Map
-                    ref={m => { this.leafletMap = m; }}
+                    ref="map"
                     center={mapCenter}
                     zoom={zoomLevel}
                 >
