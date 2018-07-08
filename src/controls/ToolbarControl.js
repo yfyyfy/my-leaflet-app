@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { MapControl } from 'react-leaflet';
 import 'leaflet-toolbar';
-import '../node_modules/leaflet-toolbar/dist/leaflet.toolbar.css';
+import '../../node_modules/leaflet-toolbar/dist/leaflet.toolbar.css';
 
 let controlPositionType = PropTypes.oneOf(['topleft', 'topright', 'bottomleft', 'bottomright',]);
 

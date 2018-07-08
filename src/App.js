@@ -1,11 +1,10 @@
 import React/*, { Component }*/ from 'react';
 import './App.css';
-import Azavea from './Azavea';
-import ToolbarExample from './ToolbarExample';
-import SimpleExample from './SimpleExample';
-import DraggableExample from './DraggableExample';
-
-import DrawToolbarExample from './DrawToolbarExample';
+import Azavea from './examples/Azavea';
+import ToolbarExample from './examples/ToolbarExample';
+import SimpleExample from './examples/SimpleExample';
+import DraggableExample from './examples/DraggableExample';
+import DrawToolbarExample from './examples/DrawToolbarExample';
 
 const App = () => (
   <div>

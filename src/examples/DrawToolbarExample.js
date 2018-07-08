@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, FeatureGroup } from 'react-leaflet';
-import ToolbarControl from './ToolbarControl';
+import ToolbarControl from '../controls/ToolbarControl';
 import L from 'leaflet';
 import 'leaflet-draw';
 import 'leaflet-draw-toolbar/dist/leaflet.draw-toolbar.js';
