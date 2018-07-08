@@ -5,8 +5,11 @@ import ToolbarExample from './ToolbarExample';
 import SimpleExample from './SimpleExample';
 import DraggableExample from './DraggableExample';
 
+import DrawToolbarExample from './DrawToolbarExample';
+
 const App = () => (
   <div>
+    <DrawToolbarExample />
     <DraggableExample />
     <ToolbarExample />
     <Azavea />
