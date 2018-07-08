@@ -4,6 +4,11 @@ import ToolbarControl from './ToolbarControl';
 import L from 'leaflet';
 import 'leaflet-toolbar';
 
+// import { renderToString } from 'react-dom/server';
+// import IoMenu from 'react-icons/lib/io/android-menu';
+// import GoDatabase from 'react-icons/lib/go/database';
+// import IoPalette from 'react-icons/lib/io/android-color-palette';
+
 export default class ToolbarExample extends Component {
   state = {
     lat: 51.505,
@@ -16,10 +21,22 @@ export default class ToolbarExample extends Component {
   }
 
   gotoSomewhereFunction(place, lat, lon, zoom) {
+//     console.log(L.toolbarAction);
+//     console.log(L.Control.Toolbar);
+//     console.log(L.toolbar.control);
+//     console.log(L.toolbar.control());
+//     console.log(new window.LeafletToolbar.Control());
+//     console.log(new window.LeafletToolbar.ToolbarAction());
+//     console.log(L.Control.ToolbarAction); // undefined
+
     return L.Toolbar2.Action.extend({
       options: {
         toolbarIcon: {
           html: '&#9873;',
+          // html: renderToString(<IoPalette size={20}/>),
+          // html: '&#9776;',
+          // html: '&#127912;',
+          // html: '&#128396;',
           tooltip: `Go to ${place}`
         }
       },
