@@ -1,5 +1,19 @@
 @import "../node_modules/leaflet/dist/leaflet.css";
 
+/* https://codepen.io/fabiobiondi/pen/PqeWGv */
+
+:local .parent {
+    /* min-height: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
+}
+
+:local .parent > div {
+    flex-basis: calc(50%);
+    /* flex-direction: column; */
+}
+
 .leaflet-container {
     height: 600px;
     width: 600px;
