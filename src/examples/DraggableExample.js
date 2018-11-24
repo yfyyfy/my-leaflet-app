@@ -4,8 +4,7 @@ import Draggable from 'react-draggable';
 
 export default class DraggableExample extends Component {
   state = {
-    lat: 34,
-    lng: 136,
+    center: {lat: 34, lng: 136},
     zoom: 6
   }
 
@@ -26,9 +25,8 @@ export default class DraggableExample extends Component {
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng];
     return (
-      <Map ref="map" center={position} zoom={this.state.zoom}>
+      <Map ref="map" center={this.state.center} zoom={this.state.zoom}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

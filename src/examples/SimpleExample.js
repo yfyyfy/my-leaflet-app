@@ -3,20 +3,18 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default class SimpleExample extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
+    center: {lat: 51.505, lng: -0.09},
+    zoom: 13
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng]
     return (
-      <Map center={position} zoom={this.state.zoom}>
+      <Map center={this.state.center} zoom={this.state.zoom}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
+        <Marker position={this.state.center}>
           <Popup>
             <span>
               A pretty CSS3 popup. <br /> Easily customizable.

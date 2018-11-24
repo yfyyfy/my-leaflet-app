@@ -11,8 +11,7 @@ import 'leaflet-toolbar';
 
 export default class ToolbarExample extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
+    center: {lat: 51.505, lng: -0.09},
     zoom: 13
   };
 
@@ -49,10 +48,9 @@ export default class ToolbarExample extends Component {
   render() {
     const action1 = this.gotoSomewhereFunction('the Eiffel Tower', 48.85815, 2.29420, 19);
     const action2 = this.gotoSomewhereFunction('japan', 34, 136, 6);
-    const position = [this.state.lat, this.state.lng];
 
     return (
-      <Map ref="map" center={position} zoom={this.state.zoom}>
+      <Map ref="map" center={this.state.center} zoom={this.state.zoom}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

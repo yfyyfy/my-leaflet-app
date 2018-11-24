@@ -9,8 +9,7 @@ import './DrawToolbarExample.css';
 
 export default class DrawToolbarExample extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
+    center: {lat: 51.505, lng: -0.09},
     zoom: 13
   };
 
@@ -50,6 +49,32 @@ export default class DrawToolbarExample extends Component {
         }).addTo(this.leafletMap(), layer);
       });
     });
+
+    this.leafletMap().on('zoom', (evt) => {
+      const zoom = this.leafletMap().getZoom();
+      const state = {zoom};
+      this.props.maps
+        .map((e) => e.current)
+        .filter((e) => e != null)
+        .forEach((e) => {
+          e.setState(state);
+          // if (e === this) {return;}
+          // e.leafletMap().setZoom(zoom);
+      });
+    });
+    this.leafletMap().on('move', (evt) => {
+      const center = this.leafletMap().getCenter();
+      const state = {center};
+      this.props.maps
+        .map((e) => e.current)
+        .filter((e) => e != null)
+        .forEach((e) => {
+          e.setState(state);
+          // if (e === this) {return;}
+          // e.leafletMap().setView(center);
+      });
+    });
+
   }
 
   _onFeatureGroupReady = (featureGroup) => {
@@ -59,10 +84,9 @@ export default class DrawToolbarExample extends Component {
   render() {
     const action1 = this.gotoSomewhereFunction('the Eiffel Tower', 48.85815, 2.29420, 19);
     const action2 = this.gotoSomewhereFunction('japan', 34, 136, 6);
-    const position = [this.state.lat, this.state.lng];
 
     return (
-      <Map ref={this._onMapReady} center={position} zoom={this.state.zoom}>
+      <Map ref={this._onMapReady} center={this.state.center} zoom={this.state.zoom}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

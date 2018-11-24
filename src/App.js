@@ -6,14 +6,26 @@ import SimpleExample from './examples/SimpleExample';
 import DraggableExample from './examples/DraggableExample';
 import DrawToolbarExample from './examples/DrawToolbarExample';
 
-const App = () => (
-  <div>
-    <DrawToolbarExample />
-    <DraggableExample />
-    <ToolbarExample />
-    <Azavea />
-    <SimpleExample />
-  </div>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.maps = [];
+    [...Array(4).keys()].forEach((i) => {
+      this.maps.push(React.createRef());
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <DrawToolbarExample ref={this.maps[0]} maps={this.maps} />
+        <DraggableExample ref={this.maps[1]} maps={this.maps} />
+        <ToolbarExample ref={this.maps[2]} maps={this.maps} />
+        <SimpleExample ref={this.maps[3]} maps={this.maps} />
+        <Azavea />
+      </div>
+    );
+  }
+}
 
 export default App;
