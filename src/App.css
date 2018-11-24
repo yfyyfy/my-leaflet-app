@@ -2,19 +2,27 @@
 
 /* https://codepen.io/fabiobiondi/pen/PqeWGv */
 
+:local .wrapper {
+    height: 100%;
+}
+
 :local .parent {
-    /* min-height: 100%; */
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: row; */
-}
-
-:local .parent > div {
-    flex-basis: calc(50%);
     /* flex-direction: column; */
 }
 
-.leaflet-container {
+:local .parent > div {
+    flex-basis: 50%;
+}
+
+:local .parent :global(.leaflet-container) {
+    height: 50%;
+}
+
+:local .orphan :global(.leaflet-container) {
     height: 600px;
     width: 600px;
 }

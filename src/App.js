@@ -17,14 +17,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.wrapper}>
         <div className={styles.parent}>
           <DrawToolbarExample ref={this.maps[0]} maps={this.maps} />
           <DraggableExample ref={this.maps[1]} maps={this.maps} />
           <ToolbarExample ref={this.maps[2]} maps={this.maps} />
           <SimpleExample ref={this.maps[3]} maps={this.maps} />
         </div>
-        <Azavea />
+        <div className={styles.orphan}>
+          <Azavea />
+        </div>
       </div>
     );
   }
