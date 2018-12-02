@@ -14,11 +14,19 @@
     /* flex-direction: column; */
 }
 
-:local .parent > div {
+:local .parent.col1 > div {
+    flex-basis: 100%;
+}
+
+:local .parent.col2 > div {
     flex-basis: 50%;
 }
 
-:local .parent :global(.leaflet-container) {
+:local .parent.row1 :global(.leaflet-container) {
+    height: 100%;
+}
+
+:local .parent.row2 :global(.leaflet-container) {
     height: 50%;
 }
 
